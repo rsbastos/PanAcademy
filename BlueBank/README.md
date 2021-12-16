@@ -97,8 +97,44 @@ Projeto de apresentação final do PAN Academy, um programa de treinamento do Ba
 | <a><img src="https://img.shields.io/badge/-POST-brightgreen"></a> | /transacoes/transferir/{contaIdDestino} | Efetua uma transferência para outro cliente do banco |
 | <a><img src="https://img.shields.io/badge/-POST-brightgreen"></a> | /transacoes/transferir/{contaIdOrigem}/{contaIdDestino} | Transferência entre contas do banco, filtrada pelos ID´s ||
 
+## SWAGGER
 
-- <h4>Extras:</h4>
+* [**acesso ao swagger**](http://pancoders.us-east-2.elasticbeanstalk.com/swagger-ui.html#/) 
+
+* Para efetuar os testes no swagger, o usuário precisa logar no sistema com o perfil de "cliente" ou "funcionário":
+1. Em "autenticacao-controle", clicar no endpoint **/auth**;
+2. Na tela que abrir, clicar em "**Try it out**";
+
+![Tela de autenticação](autenticação.jpg)
+
+3. Substituir os campos "string" pelo e-mail e senha do usuário;
+
+- Para "cliente", utilizar "**cliente1@gmail.com**" no campo email e "**cliente123**" no campo senha;
+- Para "funcionário" utilizar "**funcionario1@gmail.com**" no campo email e "**funcionario123**" no campo senha;
+- Obs: Clientes terão acesso às operações básicas em sua própria conta, como saque, depósito etc. Funcionários terão acesso irrestrito;
+
+4. Clicar em "Execute";
+
+![Tela de login](loginsenha.jpg)
+
+5. Após clicar em "Execute" será gerado um token dentro de "Response Body". Copiar esse código:
+
+![Token](token.jpg)
+
+6. Com o token copiado, clicar no botão "Authorize" na parte superior da página: 
+
+![Authorize](authorize.jpg)
+
+7. Na tela que abrir, escrever **Bearer**, espaço e colar o token previamente copiado:
+
+![Usuário logado](logado.jpg)
+
+8. A próxima tela já deverá mostrar que nosso usuário está logado no sistema. Basta clicar em "close" e proceder aos testes nos endpoints desejados.  Caso não ocorra a autorização, houve preenchimento errado de algum campo ou o token está expirado.  Refazer os passos de 1 à 7.
+
+![Usuário Autorizado e Logado](autorizadoelogado.jpg)
+
+<h3>Extras:</h3>
+
 - Link do projeto utilizado no AWS Lambda: https://github.com/jmvgcomp/pan-academy/tree/master/modulo-java/s2t2lambdaaws
 - Jira: ![image](https://user-images.githubusercontent.com/45069760/146113835-7d2c90da-7f5b-4a03-af1c-96d65c85e816.png)
 
